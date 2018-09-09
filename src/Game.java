@@ -32,22 +32,26 @@ public class Game
 	public void Loop()
 	{
 		boolean input_check = false;
-		// 入力処理
-		if(m_input == true)
+
+		while(true)
 		{
-			// 入力判定
-			input_check = Input_Check(m_mouse_input_point, m_turn);
+			// 入力処理
+			if(m_input == true)
+			{
+				// 入力判定
+				input_check = Input_Check(m_mouse_input_point, m_turn);
 
-			m_input = false;
-		}
+				m_input = false;
+			}
 
 
-		if(input_check)
-		{
-			// 勝利したかどうか判定(した場合はループ終了)
+			if(input_check)
+			{
+				// 勝利したかどうか判定(した場合はループ終了)
 
-			// ターン入れ替え
-			m_turn = Turn_Change(m_turn);
+				// ターン入れ替え
+				m_turn = Turn_Change(m_turn);
+			}
 		}
 	}
 
@@ -70,6 +74,8 @@ public class Game
 
 		return true;
 	}
+
+	//void Input_Check(Point mouse_input, Stone turn)
 
 	// マップ配列の範囲内かを調べる関数
 	// 戻り値 範囲内ならtrue 外ならfalse
